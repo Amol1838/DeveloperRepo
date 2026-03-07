@@ -21,7 +21,7 @@ pipeline {
 
         stage('Checkout Automation Repo') {
             steps {
-                git branch: 'master', url: 'https://github.com/Akshay9522/Practice.git'
+                git branch: 'master', url: 'http://github.com/Amol1838/AutomationRepo'
             }
         }
 
