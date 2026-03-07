@@ -8,7 +8,7 @@ pipeline {
 
     triggers {
         githubPush()
-        cron('H/5 * * * *')   // Run regression every 5 minutes
+        cron('H 5 * * * ')   // Run regression every 5 minutes
     }
 
     stages {
