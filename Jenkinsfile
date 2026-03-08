@@ -66,6 +66,24 @@ pipeline {
         always {
             junit '**/target/surefire-reports/*.xml'
 
+            emailext(
+                subject: "Automation Execution Result: ${currentBuild.currentResult}",
+                body: """
+Automation Test Execution Completed
+
+Job Name: ${env.JOB_NAME}
+Build Number: ${env.BUILD_NUMBER}
+Smoke Environment: ${env.SMOKE_ENV}
+Regression Environment: ${env.REG_ENV}
+Status: ${currentBuild.currentResult}
+
+Build URL:
+${env.BUILD_URL}
+""",
+                to: "jagtap.amol1838@gmail.com",
+                attachmentsPattern: '**/target/surefire-reports/*.xml'
+            )
+
         }
     }
 }
